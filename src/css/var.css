@@ -1,0 +1,35 @@
+:root {
+	--base-line-height: 1.5;
+	--base-font-family: "Segoe UI", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif;
+	--green: #8dd233;
+	--purple: #5a50a5;
+
+	--justify: {
+		text-align: justify;
+		margin-bottom: -var(--base-line-height)em;
+
+		& > * {
+			font-size: 1rem;
+			display: inline-block;
+		}
+
+		&::after {
+			content: "";
+			display: inline-block;
+			width: 100%;
+		}
+	}
+
+	--hidden: {
+		visibility: hidden;
+		opacity: 0;
+	}
+	--visible: {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	--round-radius: {
+		border-radius: 999px;
+	}
+}

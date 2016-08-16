@@ -1,0 +1,31 @@
+{
+  "name": "zhiliao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igo903/zhiliao.git"
+  },
+  "author": "Boring",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igo903/zhiliao/issues"
+  },
+  "homepage": "https://github.com/igo903/zhiliao#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-include-tag": "^1.1.2",
+    "gulp-postcss": "^6.1.1",
+    "gulp-prettify": "^0.5.0",
+    "gulp-uglify": "^2.0.0",
+    "postcss-cssnext": "^2.7.0",
+    "postcss-import": "^8.1.2"
+  }
+}
