@@ -8,6 +8,12 @@
 
 
 
+[v-cloak] {
+	display: none;
+}
+
+
+
 .main {
 	background: url(../img/planes.png) no-repeat bottom var(--green);
 }
@@ -97,5 +103,11 @@
 	font-family: var(--base-font-family);
 	color: #99d649;
 	padding: 0 0.5em;
-	background: color(white alpha(50%));
+	background: color(white alpha(70%));
+}
+
+.code-countdown {
+	color: #a5a5a5;
+	background: #e4e4e4;
+	padding: 0 1em;
 }
