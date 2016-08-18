@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>知了学习网</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/global.css">
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+	</head>
+	<body>
+		<header class="header">
+			<div class="layout justify-middle">
+				<div class="logo-wrap ibs">
+					<img src="img/logo.png" alt="知了学习网" class="logo">
+					<div class="slogan">知文达理，了然于胸</div>
+				</div>
+				<nav class="nav">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a href="">课程中心</a>
+						</li>
+						<li class="nav-item">
+							<a href="">学习中心</a>
+						</li>
+						<li class="nav-item">
+							<a href="">个人中心</a>
+						</li>
+						<li class="nav-item">
+							<a href="">我的测试</a>
+						</li>
+						<li class="nav-item">
+							<a href="">战绩排行</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="main">
+			<div class="layout">
+				<div class="entries" id="app">
+					<component :is="view" @change-view="handleChangeView" transition="sign"></component>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="layout">浙B2-20150189 鄂ICP备14018912号-2 &copy; 2014-2016
+				<a href="http://boring.wang/" target="_blank">boring.wang</a> 锅巴公司 版权所有</div>
+		</footer>
+
+		<script type="text/javascript" src="https://cdn.bootcss.com/babel-polyfill/6.13.0/polyfill.min.js"></script>
+		<script type="text/javascript" src="js/home.js"></script>
+	</body>
+</html>

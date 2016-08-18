@@ -16,6 +16,11 @@
 
 html {
 	font: 14px/var(--base-line-height) var(--base-font-family);
+	color: #585858;
+}
+
+template {
+	display: none;
 }
 
 h1,
@@ -37,7 +42,14 @@ button {
 }
 
 a {
+	text-decoration: none;
 	color: inherit;
+}
+a:hover
+
+ol,
+ul {
+	list-style: none;
 }
 
 
@@ -45,6 +57,18 @@ a {
 .layout {
 	width: 1160px;
 	margin: auto;
+}
+
+.clearfix:--before-after {
+	content: "";
+	display: table;
+}
+.clearfix::after {
+	clear: both;
+}
+
+.ibs {
+	@apply --ibs;
 }
 
 .justify {
@@ -62,6 +86,7 @@ a {
 	color: white;
 	background: var(--green);
 	padding: 0 2.5em;
+	transition: box-shadow 0.2s;
 }
 button.btn {
 	height: var(--btn-line-height)em;
@@ -94,6 +119,7 @@ a.btn-block {
 }
 button.btn:active {
 	box-shadow: inset 999px 999px color(black alpha(5%));
+	transition: none;
 }
 
 .btn[disabled] {
@@ -112,9 +138,10 @@ button.btn[disabled]:active {
 	font-size: 16px;
 }
 .form-tip {
+	min-height: calc(--base-line-height)em;
 	text-align: center;
 	margin-bottom: 1em;
-	animation: fadein 0.1s ease-in-out 7 alternate backwards;
+	animation: fadein 0.5s;
 }
 .form-tip:empty {
 	display: none;
@@ -177,6 +204,14 @@ button.btn[disabled]:active {
 .header {
 	padding: 25px 0;
 }
+.header .layout {
+	position: relative;
+}
+.slogan {
+	font-size: 18px;
+	line-height: 1;
+	margin-left: 1em;
+}
 .tel {
 	font-weight: bold;
 	line-height: 28px;
@@ -185,6 +220,34 @@ button.btn[disabled]:active {
 	color: #868686;
 	background: url(../img/phone.png) no-repeat;
 	padding-left: 30px;
+}
+
+.logo-wrap > * {
+	vertical-align: bottom;
+}
+
+.nav {
+	position: absolute;
+	top: -10px;
+	right: 0;
+}
+.nav-list {
+	@apply --ibs;
+	text-align: center;
+}
+.nav-item {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background: #fefffc;
+	background: linear-gradient(to bottom, #f2fae8 0%, white 50%);
+	margin: 0 0.2em;
+	box-shadow: 0 4px color(white alpha(50%));
+}
+.nav-item a {
+	height: 100%;
+	display: block;
+	padding-top: 65%;
 }
 
 

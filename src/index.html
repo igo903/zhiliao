@@ -1,126 +1,115 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>知了学习网</title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/global.css">
+		<include src="include/meta.html" title="知了学习网"></include>
+		<include src="include/styles.html"></include>
 		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<script type="text/javascript" src="https://npmcdn.com/vue/dist/vue.min.js"></script>
 	</head>
 	<body>
 		<include src="include/header-index.html"></include>
 		<div class="main">
 			<div class="layout">
 				<div class="entries" id="app">
-					<template v-if="view === views.ENTRY">
-						<section class="entry">
-							<h1 class="entry-title">请选择你的身份</h1>
-							<ul class="user-type-list">
-								<li class="user-type-item user-type-item-student" @click="changeView(views.SIGNIN)">
-									<div class="user-type-item-icon"></div>
-									<div class="user-type-item-name">学生</div>
-								</li>
-								<li class="user-type-item user-type-item-parent">
-									<div class="user-type-item-icon"></div>
-									<div class="user-type-item-name">家长</div>
-								</li>
-								<li class="user-type-item user-type-item-teacher">
-									<div class="user-type-item-icon"></div>
-									<div class="user-type-item-name">老师</div>
-								</li>
-							</ul>
-							<div class="btns entry-actions">
-								<a href="" class="btn btn-ghost">客户端下载</a>
-								<a href="" target="_blank" class="btn btn-ghost">建议反馈</a>
-							</div>
-						</section>
-					</template>
-					<template v-if="view === views.SIGNIN">
-						<section class="entry signin">
-							<h1 class="entry-title">欢迎访问知了学习网</h1>
-							<form class="form layout" action="home.html">
-								<label class="form-field">
-									<div class="form-field-label">用户名：</div>
-									<input type="text" name="" class="form-control" required placeholder="请输入你注册时的用户名/手机号">
-								</label>
-								<label class="form-field">
-									<div class="form-field-label">密码：</div>
-									<input type="password" name="" class="form-control" required placeholder="请输入你设定的密码">
-								</label>
-								<div class="form-actions">
-									<button type="submit" class="btn btn-block">登录</button>
-									<div class="form-links justify">
-										<a href="" @click.prevent="changeView(views.SIGNUP)">免费注册</a>
-										<a href="">忘记密码？</a>
-									</div>
-								</div>
-							</form>
-						</section>
-					</template>
-					<template v-if="view === views.SIGNUP">
-						<section class="entry signup">
-							<h1 class="entry-title">欢迎注册知了学习网<small class="entry-type">学生版</small></h1>
-							<form class="form layout" action="home.html">
-								<div class="form-tip">请正确输入手机号</div>
-								<template v-if="step === 0">
-									<div class="signup-step">
-										<label class="form-field">
-											<div class="form-field-label">手机号：</div>
-											<input type="tel" name="" class="form-control" required placeholder="请输入手机号" v-model="tel">
-										</label>
-										<label class="form-field">
-											<div class="form-field-label">邀请码：</div>
-											<input type="text" name="" class="form-control" required placeholder="请输入你的邀请码" v-model="inviteCode">
-										</label>
-										<div class="form-actions">
-											<button type="submit" class="btn btn-block" :disabled="canNext" @click.prevent="nextStep">下一步</button>
-										</div>
-									</div>
-								</template>
-								<template v-if="step === 1">
-									<div class="signup-step">
-										<label class="form-field">
-											<div class="form-field-label">验证码：</div>
-											<input type="text" name="" class="form-control" required placeholder="请输入 6 位数验证码" v-model="authCode">
-											<div class="code-countdown">180 秒</div>
-										</label>
-										<div class="form-actions">
-											<button type="submit" class="btn btn-block" :disabled="canNext" @click.prevent="nextStep">下一步</button>
-										</div>
-									</div>
-								</template>
-								<template v-if="step === 2">
-									<div class="signup-step">
-										<label class="form-field">
-											<div class="form-field-label">密码：</div>
-											<input type="password" name="" class="form-control" required placeholder="请设定 6 位数密码" v-model="pw">
-										</label>
-										<div class="form-actions">
-											<button type="submit" class="btn btn-block" :disabled="canNext" @click.prevent="nextStep">下一步</button>
-										</div>
-									</div>
-								</template>
-								<template v-if="step === 3">
-									<div class="signup-step">
-										<label class="form-field">
-											<div class="form-field-label">姓名：</div>
-											<input type="text" name="" class="form-control" required placeholder="请输入你的真实姓名" v-model="name">
-										</label>
-										<div class="form-actions">
-											<button type="submit" class="btn btn-block" :disabled="canNext">下一步</button>
-										</div>
-									</div>
-								</template>
-							</form>
-						</section>
-					</template>
+					<component :is="view" @change-view="handleChangeView" transition="sign"></component>
 				</div>
 			</div>
 		</div>
-		<footer class="footer">
-			<div class="layout">浙B2-20150189 鄂ICP备14018912号-2 &copy; 2014-2016 <a href="http://boring.wang" target="_blank">boring.wang</a> 锅巴公司 版权所有</div>
-		</footer>
+		<include src="include/footer.html"></include>
 
+		<template id="entry">
+			<section class="entry">
+				<h1 class="entry-title">请选择你的身份</h1>
+				<ul class="user-type-list">
+					<li class="user-type-item user-type-item-student" @click="changeView('signin')">
+						<div class="user-type-item-icon"></div>
+						<div class="user-type-item-name">学生</div>
+					</li>
+					<li class="user-type-item user-type-item-parent">
+						<div class="user-type-item-icon"></div>
+						<div class="user-type-item-name">家长</div>
+					</li>
+					<li class="user-type-item user-type-item-teacher">
+						<div class="user-type-item-icon"></div>
+						<div class="user-type-item-name">老师</div>
+					</li>
+				</ul>
+				<div class="btns entry-actions">
+					<a href="" class="btn btn-ghost">客户端下载</a>
+					<a href="" target="_blank" class="btn btn-ghost">建议反馈</a>
+				</div>
+			</section>
+		</template>
+		<template id="signin">
+			<section class="entry signin">
+				<h1 class="entry-title">欢迎访问知了学习网</h1>
+				<validator name="validator">
+					<form class="form layout" action="home.html" @submit.prevent="handleSubmit">
+						<div class="form-tip">{{ error }}</div>
+						<label class="form-field">
+							<div class="form-field-label">用户名：</div>
+							<input type="text" name="username" class="form-control" placeholder="请输入你注册时的用户名/手机号" v-validate:username="rules.username" @valid="handleFieldValid">
+						</label>
+						<label class="form-field">
+							<div class="form-field-label">密码：</div>
+							<input type="password" name="pw" class="form-control" placeholder="请输入你设定的密码" v-validate:pw="rules.pw" @valid="handleFieldValid">
+						</label>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-block">登录</button>
+							<div class="form-links justify">
+								<a href="" @click.prevent="changeView('signup')">免费注册</a>
+								<a href="">忘记密码？</a>
+							</div>
+						</div>
+					</form>
+				</validator>
+			</section>
+		</template>
+		<template id="signup">
+			<section class="entry signup">
+				<h1 class="entry-title">欢迎注册知了学习网<small class="entry-type">学生版</small></h1>
+				<validator name="validator" :groups="groups">
+					<form class="form layout" action="home.html" @submit.prevent="handleSubmit">
+						<div class="form-tip">{{ error }}</div>
+						<div class="j-sign-step" v-show="stepIndex === 0" transition="sign">
+							<label class="form-field">
+								<div class="form-field-label">手机号：</div>
+								<input type="tel" name="tel" class="form-control" placeholder="请输入手机号" group="step-0" v-validate:tel="rules.tel" @valid="handleFieldValid">
+							</label>
+							<label class="form-field">
+								<div class="form-field-label">邀请码：</div>
+								<input type="text" name="inviteCode" class="form-control" placeholder="请输入你的邀请码" group="step-0" v-validate:invite-code="rules.inviteCode" @valid="handleFieldValid">
+							</label>
+						</div>
+						<div class="j-sign-step" v-show="stepIndex === 1" transition="sign">
+							<label class="form-field">
+								<div class="form-field-label">验证码：</div>
+								<input type="text" name="authCode" class="form-control" placeholder="请输入 6 位数验证码" group="step-1" v-validate:auth-code="rules.authCode" @valid="handleFieldValid">
+								<div class="code-countdown">180 秒</div>
+							</label>
+						</div>
+						<div class="j-sign-step" v-show="stepIndex === 2" transition="sign">
+							<label class="form-field">
+								<div class="form-field-label">密码：</div>
+								<input type="password" name="pw" class="form-control" placeholder="请设定 6 位数密码" group="step-2" v-validate:pw="rules.pw" @valid="handleFieldValid">
+							</label>
+						</div>
+						<div class="j-sign-step" v-show="stepIndex === 3" transition="sign">
+							<label class="form-field">
+								<div class="form-field-label">姓名：</div>
+								<input type="text" name="name" class="form-control" placeholder="请输入你的真实姓名" group="step-3" v-validate:name="rules.name" @valid="handleFieldValid">
+							</label>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-block">下一步</button>
+						</div>
+					</form>
+				</validator>
+			</section>
+		</template>
+
+		<include src="include/scripts.html"></include>
+		<script type="text/javascript" src="https://cdn.bootcss.com/vue/1.0.26/vue.min.js"></script>
+		<script type="text/javascript" src="https://cdn.bootcss.com/vue-validator/2.1.5/vue-validator.min.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>

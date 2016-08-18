@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<include src="include/meta.html" title="知了学习网"></include>
+		<include src="include/styles.html"></include>
+		<link rel="stylesheet" type="text/css" href="css/home.css">
+	</head>
+	<body>
+		<include src="include/header.html"></include>
+		<div class="main">
+			<div class="layout">
+				<div class="entries" id="app">
+					<component :is="view" @change-view="handleChangeView" transition="sign"></component>
+				</div>
+			</div>
+		</div>
+		<include src="include/footer.html"></include>
+
+
+		<include src="include/scripts.html"></include>
+		<script type="text/javascript" src="js/home.js"></script>
+	</body>
+</html>

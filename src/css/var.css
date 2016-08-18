@@ -4,13 +4,21 @@
 	--green: #8dd233;
 	--purple: #5a50a5;
 
+	@custom-selector :--before-after ::before, ::after;
+
+	--ibs: {
+		& > * {
+			display: inline-block;
+		}
+	}
+
 	--justify: {
+		@apply --ibs;
 		text-align: justify;
 		margin-bottom: -var(--base-line-height)em;
 
 		& > * {
 			font-size: 1rem;
-			display: inline-block;
 		}
 
 		&::after {
