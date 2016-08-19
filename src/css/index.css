@@ -47,6 +47,16 @@
 	height: 180px;
 	border-radius: 50%;
 	background: no-repeat center white;
+
+	@nest .user-type-item-student & {
+		background-image: url(../img/student.png);
+	}
+	@nest .user-type-item-parent & {
+		background-image: url(../img/parent.png);
+	}
+	@nest .user-type-item-teacher & {
+		background-image: url(../img/teacher.png);
+	}
 }
 .user-type-item-name {
 	@apply --hidden;
@@ -55,55 +65,51 @@
 	transform: translateY(-100%);
 }
 
-.user-type-item-student .user-type-item-icon {
-	background-image: url(../img/student.png);
-}
-.user-type-item-parent .user-type-item-icon {
-	background-image: url(../img/parent.png);
-}
-.user-type-item-teacher .user-type-item-icon {
-	background-image: url(../img/teacher.png);
-}
-
-.user-type-item:hover .user-type-item-icon {
-	box-shadow: 0 0 0 5px color(white alpha(40%)), 0 0 0 10px color(white alpha(20%));
-}
-.user-type-item:hover .user-type-item-name {
-	@apply --visible;
-	transform: translateY(0);
+.user-type-item:hover {
+	& .user-type-item-icon {
+		box-shadow: 0 0 0 5px color(white alpha(40%)), 0 0 0 10px color(white alpha(20%));
+	}
+	& .user-type-item-name {
+		@apply --visible;
+		transform: translateY(0);
+	}
 }
 
-.entry-actions .btn {
-	font-size: 16px;
-	margin: 0 6%;
-	border-radius: 6px;
-	padding: 0 3em;
-}
-.entry-actions a.btn {
-	line-height: 2.5;
+.entry-actions {
+	& .btn {
+		font-size: 16px;
+		margin: 0 6%;
+		border-radius: 6px;
+		padding: 0 3em;
+	}
+	& a.btn {
+		line-height: 2.5;
+	}
 }
 
 
 
-:--signinup .form {
-	text-align: left;
-}
-:--signinup .form.layout {
-	width: 43%;
-}
-:--signinup .entry-title {
-	font-size: 28px;
-	font-family: "迷你简硬笔行书";
-}
-:--signinup .entry-type {
-	@apply --round-radius;
-	display: inline-block;
-	vertical-align: middle;
-	font-size: 1rem;
-	font-family: var(--base-font-family);
-	color: #99d649;
-	padding: 0 0.5em;
-	background: color(white alpha(70%));
+:--signinup {
+	& .form {
+		text-align: left;
+	}
+	& .form.layout {
+		width: 43%;
+	}
+	& .entry-title {
+		font-size: 28px;
+		font-family: "迷你简硬笔行书";
+	}
+	& .entry-type {
+		@apply --round-radius;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 1rem;
+		font-family: var(--base-font-family);
+		color: #99d649;
+		padding: 0 0.5em;
+		background: color(white alpha(70%));
+	}
 }
 
 .code-countdown {

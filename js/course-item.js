@@ -1,0 +1,1 @@
+"use strict";!function(){var e=document.getElementById("video");document.getElementById("study").addEventListener("click",function(){e.play()})}();

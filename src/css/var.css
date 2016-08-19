@@ -3,6 +3,8 @@
 	--base-font-family: "Segoe UI", "Microsoft Jhenghei", "Microsoft Yahei", sans-serif;
 	--green: #8dd233;
 	--purple: #5a50a5;
+	--gray: #949494;
+	--gray-1: #a8a8a8;
 
 	@custom-selector :--before-after ::before, ::after;
 
@@ -12,15 +14,25 @@
 		}
 	}
 
+	--clearfix {
+		&:--before-after {
+			content: "";
+			display: table;
+		}
+		&::after {
+			clear: both;
+		}
+	}
+
 	--justify: {
 		@apply --ibs;
+		font-size: 0.1px;
+		line-height: 0;
 		text-align: justify;
-		margin-bottom: -var(--base-line-height)em;
 
 		& > * {
 			font-size: 1rem;
 		}
-
 		&::after {
 			content: "";
 			display: inline-block;
@@ -39,5 +51,9 @@
 
 	--round-radius: {
 		border-radius: 999px;
+	}
+
+	--block-margin: {
+		margin-bottom: 20px;
 	}
 }

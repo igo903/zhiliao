@@ -1,0 +1,9 @@
+@import "var.css";
+
+
+
+.focus {
+	@apply --block-margin;
+	height: 410px;
+	background: var(--green);
+}
