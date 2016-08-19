@@ -3,6 +3,20 @@
 		this.$dispatch('change-view', viewType);
 	}
 
+	function handleFieldValid(e) {
+		this.clearError();
+	}
+
+	function clearError() {
+		this.error = '';
+	}
+
+	function getError() {
+		let firstInvalidControl = this.getFirstInvalidControl();
+
+		return firstInvalidControl ? this.$validator[firstInvalidControl.name].errors[0].message : '';
+	}
+
 	let entry = Vue.extend({
 		template: '#entry',
 
@@ -38,15 +52,12 @@
 
 		methods: {
 			changeView,
+			handleFieldValid,
+			clearError,
+			getError,
 
 			focusControl() {
 				this.$el.getElementsByTagName('input')[0].focus();
-			},
-
-			getError() {
-				let firstInvalidControl = this.getFirstInvalidControl();
-
-				return firstInvalidControl ? this.$validator[firstInvalidControl.name].errors[0].message : '';
 			},
 
 			handleSubmit(e) {
@@ -140,6 +151,9 @@
 
 		methods: {
 			changeView,
+			handleFieldValid,
+			clearError,
+			getError,
 
 			focusControl() {
 				this.step.getElementsByTagName('input')[0].focus();
@@ -164,26 +178,12 @@
 				this.$nextTick(this.focusControl);
 			},
 
-			getError() {
-				let firstInvalidControl = this.getFirstInvalidControl();
-
-				return firstInvalidControl ? this.$validator[firstInvalidControl.name].errors[0].message : '';
-			},
-
 			getFirstInvalidControl() {
 				return this.step.getElementsByClassName('invalid')[0];
 			},
 
-			handleFieldValid(e) {
-				this.clearError();
-			},
-
 			isValid() {
 				return this.group.valid;
-			},
-
-			clearError() {
-				this.error = '';
 			}
 		}
 	});
