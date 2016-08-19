@@ -32,11 +32,14 @@
 	& .course-item-text {
 		height: 348px;
 	}
+	& .course-item-img {
+		width: 644px;
+	}
 	& .course-item-img:hover {
 		transform: none;
 	}
 	& .course-item-text {
-		margin-left: 720px;
+		margin-left: 675px;
 	}
 	& a.course-item-study {
 		right: 0;

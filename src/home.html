@@ -3,12 +3,20 @@
 	<head>
 		<include src="include/meta.html"></include>
 		<include src="include/styles.html"></include>
+		<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css">
 		<link rel="stylesheet" type="text/css" href="css/home.css">
 	</head>
 	<body>
 		<include src="include/header.html"></include>
 		<div class="main">
-			<div class="focus"></div>
+			<div class="focus swiper-container" id="focus">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><span>1</span></div>
+					<div class="swiper-slide"><span>2</span></div>
+					<div class="swiper-slide"><span>3</span></div>
+				</div>
+				<div class="focus-indexes"></div>
+			</div>
 			<div class="layout">
 				<include src="include/course-list-horizontal.html"></include>
 			</div>
@@ -17,6 +25,7 @@
 
 
 		<include src="include/scripts.html"></include>
+		<script type="text/javascript" src="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.js"></script>
 		<script type="text/javascript" src="js/home.js"></script>
 	</body>
 </html>

@@ -1,0 +1,1 @@
+"use strict";!function(){var e=5e3;new Swiper("#focus",{simulateTouch:!1,pagination:".focus-indexes",paginationClickable:!0,useCSS3Transforms:!1,loop:!0,autoplay:e,onSlideChangeStart:function(i){setTimeout(i.swipeNext.bind(i),e)}})}();

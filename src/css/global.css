@@ -198,8 +198,11 @@ button.btn:active {
 	background: var(--purple);
 }
 .form-links {
-	margin-top: 0.8em;
+	margin-top: 10px;
 
+	& a {
+		text-decoration: underline;
+	}
 	&.justify > * {
 		font-size: 16px;
 	}
@@ -216,6 +219,7 @@ button.btn:active {
 
 	& .layout {
 		position: relative;
+		z-index: 2;
 	}
 }
 .logo {
@@ -254,7 +258,7 @@ button.btn:active {
 	width: 120px;
 	height: 120px;
 	border-radius: 50%;
-	background: #fefffc;
+	background: #f5fff5;
 	background: linear-gradient(to bottom, #f2fae8 0%, white 50%);
 	margin: 0 0.2em;
 	box-shadow: 0 4px color(white alpha(50%));

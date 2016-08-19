@@ -120,6 +120,24 @@
 
 
 
-.sign-enter {
-	animation: fadein 0.4s ease-in-out;
+.entry-enter,
+.step-enter {
+	animation: 0.4s;
+}
+.entry-enter {
+	animation-name: fadein;
+}
+.step-enter {
+	animation-name: fadein, left-10;
+}
+
+
+
+@keyframes left-10 {
+	0% {
+		transform: translateX(5%);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }

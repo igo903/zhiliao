@@ -10,7 +10,7 @@
 		<div class="main">
 			<div class="layout">
 				<div class="entries" id="app">
-					<component :is="view" @change-view="handleChangeView" transition="sign"></component>
+					<component :is="view" @change-view="handleChangeView" transition="entry"></component>
 				</div>
 			</div>
 		</div>
@@ -80,20 +80,20 @@
 								<input type="text" name="inviteCode" class="form-control" placeholder="请输入你的邀请码" group="step-0" v-validate:invite-code="rules.inviteCode" @valid="handleFieldValid">
 							</label>
 						</div>
-						<div class="j-sign-step" v-show="stepIndex === 1" transition="sign">
+						<div class="j-sign-step" v-show="stepIndex === 1" transition="step">
 							<label class="form-field">
 								<div class="form-field-label">验证码：</div>
 								<input type="text" name="authCode" class="form-control" placeholder="请输入 6 位数验证码" group="step-1" v-validate:auth-code="rules.authCode" @valid="handleFieldValid">
 								<div class="code-countdown">180 秒</div>
 							</label>
 						</div>
-						<div class="j-sign-step" v-show="stepIndex === 2" transition="sign">
+						<div class="j-sign-step" v-show="stepIndex === 2" transition="step">
 							<label class="form-field">
 								<div class="form-field-label">密码：</div>
 								<input type="password" name="pw" class="form-control" placeholder="请设定 6 位数密码" group="step-2" v-validate:pw="rules.pw" @valid="handleFieldValid">
 							</label>
 						</div>
-						<div class="j-sign-step" v-show="stepIndex === 3" transition="sign">
+						<div class="j-sign-step" v-show="stepIndex === 3" transition="step">
 							<label class="form-field">
 								<div class="form-field-label">姓名：</div>
 								<input type="text" name="name" class="form-control" placeholder="请输入你的真实姓名" group="step-3" v-validate:name="rules.name" @valid="handleFieldValid">
