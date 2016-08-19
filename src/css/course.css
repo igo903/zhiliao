@@ -34,8 +34,13 @@
 	}
 	& .course-item-img {
 		width: 644px;
+		transition: none;
+
+		&.video-dimensions {
+			height: 100%;
+		}
 	}
-	& .course-item-img:hover {
+	& .course-item-cover:hover .course-item-img {
 		transform: none;
 	}
 	& .course-item-text {
